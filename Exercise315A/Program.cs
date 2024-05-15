@@ -4,17 +4,15 @@ var secretNumber = random.Next(1, 10);
 var number = -1;
 var guessCount = 0;
 
-while (number != secretNumber)
+while (true)
 {
     Console.Write("Gjett et tall: ");
     var numberStr = Console.ReadLine();
     number = Convert.ToInt32(numberStr);
     guessCount++;
-    if (number != secretNumber)
-    {
-        var text = number < secretNumber ? "For lavt" : "For høyt";
-        Console.WriteLine(text);
-    }
+    if (number == secretNumber) break;
+    var text = number < secretNumber ? "For lavt" : "For høyt";
+    Console.WriteLine(text);
     //if (number > secretNumber)
     //{
     //    Console.WriteLine("For høyt");
@@ -25,3 +23,4 @@ while (number != secretNumber)
     //}
 }
 Console.WriteLine($"Riktig! Du brukte {guessCount} forsøk.");
+
